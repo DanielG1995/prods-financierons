@@ -129,6 +129,6 @@ describe('ProductFormComponent', () => {
     
     fixture.detectChanges();
     expect(idError).toBe('Este campo es requerido');
-    expect(nameError).toBe('Mínimo 6 caracteres.');
+    expect(nameError).toBe('Mínimo 5 caracteres.');
   });
 });
