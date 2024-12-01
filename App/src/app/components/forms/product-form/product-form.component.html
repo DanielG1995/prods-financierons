@@ -1,0 +1,69 @@
+<div class="form-container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form">
+
+      <div class="input-container">
+        <label for="id">ID</label>
+        <input [ngClass]="{'error-input': isFieldInvalid('id')}" type="text" id="id" formControlName="id">
+        <div class="error" *ngIf="isFieldInvalid('id')">
+          {{getFieldError("id")}}
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="name">Nombre</label>
+        <input [ngClass]="{'error-input': isFieldInvalid('name')}" type="text" id="name" formControlName="name">
+        <div class="error" *ngIf="isFieldInvalid('name')">
+          {{getFieldError("name")}}
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="description">Descripción</label>
+        <textarea [ngClass]="{'error-input': isFieldInvalid('description')}" id="description"
+          formControlName="description"></textarea>
+        <div class="error" *ngIf="isFieldInvalid('description')">
+          {{getFieldError("description")}}
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="logo">Logo URL</label>
+        <input [ngClass]="{'error-input': isFieldInvalid('logo')}" type="text" id="logo" formControlName="logo">
+        <div class="error" *ngIf="isFieldInvalid('logo')">
+          {{getFieldError("logo")}}
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="date_release">Fecha de Liberación</label>
+        <input (change)="updateDate('date_release', 'date_revision')" [attr.min]="minDate"
+          [ngClass]="{'error-input': isFieldInvalid('date_release')}" type="date" id="date_release"
+          formControlName="date_release">
+        <div class="error" *ngIf="isFieldInvalid('date_release')">
+          {{getFieldError("date_release")}}
+        </div>
+        <div class="error" *ngIf="productForm.errors?.['dateInvalidToday']">
+          {{ getFieldError('date_release') }}
+        </div>
+      </div>
+
+      <div class="input-container disabled">
+        <label for="date_revision">Fecha de Revisión</label>
+        <input readonly type="date" id="date_revision" formControlName="date_revision">
+        <!-- <div class="error" *ngIf="isFieldInvalid('date_revision')">
+          {{getFieldError("date_revision")}}
+        </div> -->
+        <div class="error" *ngIf="productForm.errors?.['dateComparison']">
+          {{ getFieldError('date_revision') }}
+        </div>
+      </div>
+
+    </div>
+    <div class="btn-container">
+      <button (click)="resetForm()" class="btn btn-secondary" type="button">Reiniciar</button>
+      <button [ngClass]="{'disabled': getFieldError()==='1'}" [disabled]="getFieldError()==='1'" [style]="{}" class="btn btn-primary" type="submit">Enviar</button>
+    </div>
+  </form>
+
+</div>

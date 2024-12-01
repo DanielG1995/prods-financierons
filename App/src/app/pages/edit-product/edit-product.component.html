@@ -1,0 +1,11 @@
+<div class="page-content">
+    <div class="form-content">
+        <p class="title-page">Formulario de edición </p>
+        <app-product-form style="width: 80%;" [product]="product!" (submitEvent)="onSubmitUpdate($event)"
+            [disabledInputs]="disabledInputs" />
+        @if(message.text!==''){
+        <app-alert [message]="message" />
+        }
+        <a class="link" routerLink="/poducts" routerLinkActive="active" >Productos</a>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="pagination">
+    <span (click)="onClickPage(i+1)" *ngFor="let page of [].constructor(this.productService.getPagination().totalPages); let i = index"
+        class="page" [ngClass]="{'selected':currentPage===(i+1)}">
+        {{ i + 1 }}
+    </span>
+
+</div>

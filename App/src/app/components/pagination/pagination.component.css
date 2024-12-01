@@ -1,0 +1,23 @@
+.pagination{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.page{
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border:none;
+    background-color: whitesmoke;
+    cursor:pointer
+}
+
+.selected{
+    background: #00000044;
+    border: none;
+    color: white;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "danielgallardo",
+  "version": "1.0.0",
+  "description": "Test Angular",
+  "scripts": {
+    "tests":"cd ./App && ng test",
+    "tests:coverage":"cd ./App && ng test --code-coverage",
+    "start:app": "cd ./App && ng serve",
+    "start:server": "cd ./Server && npm run start:dev",
+    "install": "concurrently \"cd ./App && npm install\" \"cd ./Server && npm install\"",
+    "start": "concurrently \"npm run start:app\" \"npm run start:server\""
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

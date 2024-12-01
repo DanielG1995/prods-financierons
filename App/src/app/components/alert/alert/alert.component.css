@@ -1,0 +1,41 @@
+.alert{
+    position: fixed;
+    width: auto;
+    top: -100px;
+    right: 20px;
+    max-width: 200px;
+    padding: 10px;
+    border: solid 1px whitesmoke;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: translateX(-50%);
+    animation: slideDownUp 3s ease-in-out forwards;
+    border: none
+}
+
+.succes{
+    background-color: rgba(95, 159, 0, 0.83);
+    color: white;
+}
+
+.error{
+    background-color: rgba(172, 1, 1, 0.797);
+    color: white;
+}
+
+@keyframes slideDownUp {
+    0% {
+      top: -100px; 
+    }
+    20% {
+      top: 10px; 
+    }
+    80% {
+      top:10px; 
+    }
+    100% {
+      top: -100px; 
+    }
+  }
+

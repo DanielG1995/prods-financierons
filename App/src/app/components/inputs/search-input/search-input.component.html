@@ -1,0 +1,8 @@
+<input 
+    id="textField"
+    placeholder="Buscar..."
+    [(ngModel)]="textValue" 
+    (ngModelChange)="onTextChange(searchInput.value)" 
+    type="text"
+    #searchInput
+  />

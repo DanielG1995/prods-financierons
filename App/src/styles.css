@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px !important;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content {
+    width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    min-width: 300px;
+}
+
+.title-page {
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(1, 1, 124);
+    width: fit-content;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: rgb(255, 221, 0);
+
+}
+
+.btn-secondary {
+    background-color: rgb(219, 218, 218);
+    border: whitesmoke 1px solid
+}
+
+
+.table-container {
+    padding: 20px;
+    background-color: white;
+    overflow-x: auto;
+}
+
+
+
+table {
+    width: 100%;
+    border-spacing: 0px !important;
+    border-radius: 20px;
+    min-width: 700px;
+}
+
+
+th {
+    background-color: whitesmoke;
+    padding: 20px;
+    text-align: center
+}
+
+td {
+    border-bottom: 1px solid whitesmoke;
+}
+
+td {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.link{
+    color: rgb(0, 0, 174);
+    text-decoration: underline;
+    cursor: pointer;
+}

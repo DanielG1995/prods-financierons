@@ -1,0 +1,29 @@
+<div class="table-container">
+    <table>
+        <thead>
+            <tr class="header">
+                @for(header of headers; track header.key){
+                <th>{{header.label}}</th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @for(row of [].constructor(rows); track row){
+            <tr>
+
+                @for(header of headers; track header.key){
+                <td>
+                    @if(header.type==='img'){
+                    <div class="skeleton skeleton-img"></div>
+                    }@else{
+                    <div class="skeleton"></div>
+                    }
+                </td>
+                }
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

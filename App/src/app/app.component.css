@@ -1,0 +1,7 @@
+.content {
+    width: auto;
+    height: 100%;
+    background-color: whitesmoke;
+    padding: 40px;
+    overflow-y: auto;
+}

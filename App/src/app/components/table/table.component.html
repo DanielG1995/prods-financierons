@@ -1,0 +1,77 @@
+<div class="table-container">
+    <div class="table-data-container">
+
+        <table>
+            <thead>
+                <tr class="header">
+                    @for(h of headers(); track h.key){
+                    <th>{{h.label}}</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for(p of items().slice(0,paginateCount()); track p.id){
+                <tr>
+                    @for(h of headers(); track h.key ){
+                    <td>
+                        @switch (h?.type) {
+                        @case ('img') {
+                        <img class="img-icon" [srcset]="p?.[h.key]" alt="logo" />
+                        }
+                        @case ('date') {
+                        {{p?.[h.key] | date:'shortDate'}}
+                        }
+                        @case ('options') {
+                        <div class="opt-container">
+
+                            <button class="btn-menu" (click)="toggleMenu(p.id)"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" width="15" height="15">
+                                    <circle cx="12" cy="4" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="20" r="2"></circle>
+                                </svg>
+                            </button>
+                            @if(currentId === p.id){
+                            <div (click)="toggleMenu('')" class="bg-menu-item"></div>
+                            <div class="menu-item">
+                                <a [routerLink]="['/edit-product', p.id]">Editar</a>
+                                <span (click)="showModal(p)">Eliminar</span>
+                            </div>
+                            }
+                        </div>
+
+                        }
+                        @default {
+                        {{p?.[h.key] }}
+                        }
+                        }
+
+                    </td>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="container-pagination">
+        <p> {{this.productService.getPagination().totaCurrentItems}} Resultados de
+            {{this.productService.getPagination().items}}</p>
+        <div class="container-pagination gap-10">
+            <app-pagination [totalItems]="this.productService.getPagination().total" />
+            <select (change)="onChangePagination(+paginate.value)" #paginate>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+    </div>
+</div>
+<app-modal [isVisible]="isModalVisible" (close)="showModal()">
+    <div class="container-confirmation">
+        <p>¿Estas seguro de eliminar el producto {{currentProduct?.name}}?</p>
+        <div class="btn-container">
+            <button class="btn btn-secondary" (click)="showModal()">Cancelar</button>
+            <button class="btn btn-primary" (click)="onClickConfirm()">Confirmar</button>
+        </div>
+    </div>
+</app-modal>
